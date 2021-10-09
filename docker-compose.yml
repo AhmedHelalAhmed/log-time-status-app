@@ -5,6 +5,9 @@ services:
         container_name: ${DOCKER_NAME}_web
         build:
             context: .
+            args:
+                user: ${USER}
+                uid: ${UID}
         ports:
             - "80:80"
         volumes:
