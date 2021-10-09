@@ -19,6 +19,7 @@ RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-di
 
 ARG user
 ARG uid
+RUN useradd -u $uid $user
 RUN mkdir /home/$user/
 RUN chown -R $user:$user /var/www/html
 RUN chown -R $user:$user /home/$user/
