@@ -32,4 +32,7 @@ services:
         depends_on:
              - database_server
         environment:
-            - PMA_ARBITRARY=1
+            PMA_HOST: database_server
+            PMA_PORT: 3306
+            PMA_USER: root
+            PMA_PASSWORD: root
