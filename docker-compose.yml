@@ -23,3 +23,13 @@ services:
             - MYSQL_DATABASE=log-time-status-app
             - MYSQL_ROOT_PASSWORD=root
             - SERVICE_NAME=mysql
+    phpmyadmin:
+        container_name: ${DOCKER_NAME}_phpmyadmin
+        image: phpmyadmin/phpmyadmin
+        restart: always
+        ports:
+            - "8080:80"
+        depends_on:
+             - database_server
+        environment:
+            - PMA_ARBITRARY=1
