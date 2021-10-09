@@ -3,6 +3,9 @@ FROM php:7.4.24-apache
 RUN apt-get update -yqq && \
   apt-get install -y apt-utils zip unzip && \
   apt-get install -y nano && \
+  apt-get install -y git && \
+  apt-get install -y nodejs && \
+  apt-get install -y npm && \
   apt-get install -y libzip-dev && \
   a2enmod rewrite && \
   docker-php-ext-install mysqli pdo pdo_mysql && \
