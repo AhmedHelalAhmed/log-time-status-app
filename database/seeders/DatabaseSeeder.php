@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +15,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $admin = User::query()->firstOrCreate([
+            'email' => 'admin@app.com',
+
+        ], [
+            'name' => 'Admin',
+            'password' => Hash::make('123456789'),
+        ]);
+
+        if ($admin->wasRecentlyCreated) {
+            $this->command->info('Created successfully');
+            return;
+        }
+
+        $this->command->info('Admin created before!');
     }
 }

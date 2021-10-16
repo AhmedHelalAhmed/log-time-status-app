@@ -21,8 +21,8 @@ ARG user
 ARG uid
 RUN useradd -u $uid $user
 RUN mkdir /home/$user/
-RUN chown -R $user:$user /var/www/html
-RUN chown -R $user:$user /home/$user/
+RUN chown  $user:$user -R /var/www/html
+RUN chown  $user:$user -R /home/$user/
 USER $user
 
 WORKDIR /var/www/app
