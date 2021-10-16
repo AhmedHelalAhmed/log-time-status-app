@@ -4,7 +4,8 @@
         <jet-banner/>
         <div class="flex h-screen bg-gray-100">
             <!--Left Area / Left Menu -->
-            <transition name="app-left-menu">
+            <transition v-if="false" name="app-left-menu">
+
                 <left-menu
                     v-if="hiddenLeftMenu === 'false'"
                     :showingLeftMenu="showingLeftMenu"
@@ -31,7 +32,7 @@
             deviceType === 'tablet' || deviceType === 'phone'  ? 'w-screen' : 'w-full'
             ]">
                     <!--Left Menu Trigger-->
-                    <transition-group :class="[
+                    <transition-group v-if="false" :class="[
                                     'trigger',
                                     deviceType === 'laptop' | deviceType === 'desktop' && 'trigger-bordered'
                                     ]"
@@ -59,7 +60,7 @@
                     </transition-group>
                     <!--Search Box-->
                     <div class="search-box-container">
-                        <div class="search-box">
+                        <div class="search-box" v-if="false">
                             <svg
                                 aria-hidden="true"
                                 class="absolute h-6 w-6 mt-2.5 ml-2 text-gray-400"
@@ -174,12 +175,12 @@
                             <template #default>
                                 <div v-show="deviceType !== 'phone'" class="dropdown-list-container">
                                     <!-- Account Management -->
-                                    <div class="dropdown-header">
+                                    <div class="dropdown-header" v-if="false">
                                         Manage Account
                                     </div>
 
                                     <!--Profile-->
-                                    <Link :href="route('profile.show')">
+                                    <Link :href="route('profile.show')" v-if="false">
                                         <div class="dropdown-item">
                                             Profile
                                         </div>
@@ -392,6 +393,7 @@
                 </div>
                 <footer
                     class="footer"
+                    v-if="false"
                 >
                     <a
                         class="text-blue-600 hover:underline"
